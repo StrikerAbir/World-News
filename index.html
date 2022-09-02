@@ -58,9 +58,7 @@
   <body>
     <!-- header part -->
     <header class="container mx-auto">
-      <nav
-        class="bg-sky-500 px-2 sm:px-4 py-2.5 font-sans"
-      >
+      <nav class="bg-sky-500 px-2 sm:px-4 py-2.5 font-sans">
         <div
           class="container flex flex-wrap justify-between items-center mx-auto"
         >
@@ -108,7 +106,7 @@
               <li>
                 <a
                   href="#"
-                  class="block py-2 pr-4 pl-3 text-black rounded hover:bg-sky-300 md:hover:bg-transparent md:border-0  md:p-0 font-bold"
+                  class="block py-2 pr-4 pl-3 text-black rounded hover:bg-sky-300 md:hover:bg-transparent md:border-0 md:p-0 font-bold"
                   aria-current="page"
                   >News</a
                 >
@@ -116,26 +114,26 @@
               <li>
                 <a
                   href="#"
-                  class="block py-2 pr-4 pl-3 text-black rounded hover:bg-sky-300 md:hover:bg-transparent md:border-0  md:p-0 font-bold"
+                  class="block py-2 pr-4 pl-3 text-black rounded hover:bg-sky-300 md:hover:bg-transparent md:border-0 md:p-0 font-bold"
                   >Blogs</a
                 >
               </li>
               <li>
                 <a
                   href="#"
-                  class="block py-2 pr-4 pl-3 text-black rounded hover:bg-sky-300 md:hover:bg-transparent md:border-0  md:p-0 font-bold"
+                  class="block py-2 pr-4 pl-3 text-black rounded hover:bg-sky-300 md:hover:bg-transparent md:border-0 md:p-0 font-bold"
                   >About</a
                 >
               </li>
               <li>
                 <a
                   href="#"
-                  class="block py-2 pr-4 pl-3 text-black rounded hover:bg-sky-300 md:hover:bg-transparent md:border-0  md:p-0 font-bold"
+                  class="block py-2 pr-4 pl-3 text-black rounded hover:bg-sky-300 md:hover:bg-transparent md:border-0 md:p-0 font-bold"
                   >Contact</a
                 >
               </li>
               <li>
-                <img src="./images/Avatar.png" alt="" class="">
+                <img src="./images/Avatar.png" alt="" class="" />
               </li>
             </ul>
           </div>
@@ -144,15 +142,19 @@
     </header>
 
     <!-- main part -->
-    <main class="container mx-auto bg-sky-200 py-6">
+    <main class="container mx-auto bg-sky-200 py-7">
       <!-- catagories section -->
-      <section class="mb-7">
-        <div id="categories-container" class="grid xl:grid-cols-8 lg:grid-cols-6 md:grid-cols-5 sm:grid-cols-4 grid-cols-2 gap-2 border-2 border-sky-500 mx-3 rounded">
-          
-        </div> 
+      <section class="mb-10">
+        <div
+          id="categories-container"
+          class="grid xl:grid-cols-8 lg:grid-cols-6 md:grid-cols-5 sm:grid-cols-4 grid-cols-2 gap-2 border-2 border-sky-500 mx-3 rounded mb-10"
+        ></div>
+        <div class="flex justify-center">
+          <h1 id="total-news" class="w-5/6 bg-sky-100 rounded pl-9 py-4"></h1>
+        </div>
       </section>
 
-      <!-- news Section -->
+      <!-- News Section -->
       <section>
         <!-- Loading spinner -->
         <div id="loader" class="hidden">
@@ -162,6 +164,28 @@
               class="text-blue-400 spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full ml-2"
               role="status"
             ></div>
+          </div>
+        </div>
+
+        <!-- News -->
+        <div class="flex justify-center">
+          <div
+            class="flex flex-col md:flex-row md:w-5/6 rounded-lg bg-sky-100 shadow-lg"
+          >
+            <img
+              class="w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+              src="https://mdbootstrap.com/wp-content/uploads/2020/06/vertical.jpg"
+              alt=""
+            />
+            <div class="p-6 flex flex-col justify-start">
+              <h5 class="text-gray-900 text-xl font-medium mb-2">Card title</h5>
+              <p class="text-gray-700 text-base mb-4">
+                This is a wider card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
+              <p class="text-gray-600 text-xs">Last updated 3 mins ago</p>
+            </div>
           </div>
         </div>
       </section>

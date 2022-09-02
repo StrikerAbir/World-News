@@ -15,7 +15,7 @@ const displayCategory = (categories) => {
         const div = document.createElement('div');
         div.classList.add('hover:bg-red-600', 'hover:text-white', 'rounded')
         div.innerHTML = `
-            <div class="text-center py-3" onclick="clickedCategory('${category.category_id}')">
+            <div class="text-center py-3" onclick="clickedCategory('${category.category_id}','${category.category_name}')">
                 <p>${category.category_name}</p>
             </div> 
         `
@@ -25,9 +25,9 @@ const displayCategory = (categories) => {
 loadCatagories()
 
 
-const clickedCategory = (categoryId) => {
+const clickedCategory = (categoryId,categoryName) => {
     toggleSpinner(true);
-    loadCategoryData(categoryId);
+    loadCategoryData(categoryId,categoryName);
 }
 
 
@@ -44,15 +44,17 @@ const toggleSpinner = (isLoading) => {
 }
 
 // load category data
-const loadCategoryData = (id) => {
+const loadCategoryData = (id,name) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
     fetch(url)
         .then(response => response.json())
-        .then(data => displayCategoryData(data.data))
+        .then(data => displayCategoryData(data.data,name))
         .catch(err => console.error(err));
 }
 
 // Display category data 
-const displayCategoryData = (newsFeed) => {
-    
+const displayCategoryData = (newsFeed,name) => {
+    console.log(newsFeed);
+    const totalNews = document.getElementById('total-news');
+    totalNews.innerText = `${name} category has ${newsFeed.length} news`;
 }
