@@ -25,9 +25,9 @@ const displayCategory = (categories) => {
 loadCatagories()
 
 
-const clickedCategory = (categoryId,categoryName) => {
+const clickedCategory = (categoryId, categoryName) => {
     toggleSpinner(true);
-    loadCategoryData(categoryId,categoryName);
+    loadCategoryData(categoryId, categoryName);
 }
 
 
@@ -44,16 +44,16 @@ const toggleSpinner = (isLoading) => {
 }
 
 // load category data
-const loadCategoryData = (id,name) => {
+const loadCategoryData = (id, name) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
     fetch(url)
         .then(response => response.json())
-        .then(data => displayCategoryData(data.data,name))
+        .then(data => displayCategoryData(data.data, name))
         .catch(err => console.error(err));
 }
 
 // Display category data 
-const displayCategoryData = (newsFeed,name) => {
+const displayCategoryData = (newsFeed, name) => {
     console.log(newsFeed);
     const totalNews = document.getElementById('total-news');
     totalNews.innerText = `${name} category has ${newsFeed.length} news`;
@@ -63,9 +63,12 @@ const displayCategoryData = (newsFeed,name) => {
 const setCards = (newsFeed) => {
     const newsContainer = document.getElementById('news-container')
     newsContainer.innerHTML = ``;
-    
+
     newsFeed.forEach(news => {
-        const details = news.details.slice(0, 230)
+        const details = news.details.slice(0, 230);
+        const monthNames = ["Jan", "Feb", "Mar", "April", "May", "June","July", "Aug", "Sept", "Oct", "Nov", "Dec"
+        ];
+        const date = new Date(news.author.published_date);
         const div = document.createElement('div');
         div.classList.add('flex', 'justify-center');
         div.innerHTML = `
@@ -92,7 +95,7 @@ const setCards = (newsFeed) => {
                     <img class="h-10 w-10" src="${news.author.img}" alt="" />
                     <div class="pl-2">
                       <h3 class="text-md font-semibold">${news.author.name}</h3>
-                      <p class="text-sm">${news.author.published_date}</p>
+                      <p class="text-sm">${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}</p>
                     </div>
                   </div>
                 </div>
