@@ -57,4 +57,68 @@ const displayCategoryData = (newsFeed,name) => {
     console.log(newsFeed);
     const totalNews = document.getElementById('total-news');
     totalNews.innerText = `${name} category has ${newsFeed.length} news`;
+    setCards(newsFeed)
+}
+
+const setCards = (newsFeed) => {
+    const newsContainer = document.getElementById('news-container')
+    newsContainer.innerHTML = ``;
+    
+    newsFeed.forEach(news => {
+        const details = news.details.slice(0, 230)
+        const div = document.createElement('div');
+        div.classList.add('flex', 'justify-center');
+        div.innerHTML = `
+        <div
+            class="flex flex-col md:flex-row md:w-5/6 rounded-lg bg-sky-100 shadow-lg"
+          >
+            <img
+              class="w-full h-96 md:h-auto object-cover md:w-auto rounded-t-lg md:rounded-none md:rounded-l-lg"
+              src="${news.thumbnail_url}"
+              alt=""
+            />
+            <div class="p-6 flex flex-col justify-start">
+              <h5 class="text-gray-900 text-xl font-medium mb-2">${news.title}</h5>
+              <p class="text-gray-700 text-base mb-4">
+                ${details}...
+              </p>
+              <div class="flex justify-end">
+                <button><img src="./images/bi_arrow-right-short.png" alt=""></button>
+              </div>
+              
+              <div class="flex justify-between items-center mt-5 md:mt-0 lg:mr-10">
+                <div class="mb-2">
+                  <div class="flex">
+                    <img class="h-10 w-10" src="${news.author.img}" alt="" />
+                    <div class="pl-2">
+                      <h3 class="text-md font-semibold">${news.author.name}</h3>
+                      <p class="text-sm">${news.author.published_date}</p>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex">
+                    <img src="./images/carbon_view.png" alt="" />
+                    <div class="ml-">
+                      <p class="text-sm p-1 font-bold">${news.total_view}</p>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                   <div class="flex items-center">
+                    <div>
+                      <p class="text-sm">Rating:</p>
+                    </div>
+                    <div class="mx-2">
+                      <p class="text-sm font-bold">${news.rating.number}</p>
+                    </div>
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `
+        newsContainer.appendChild(div)
+    })
 }
