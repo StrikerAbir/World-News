@@ -124,4 +124,5 @@ const setCards = (newsFeed) => {
         `
         newsContainer.appendChild(div)
     })
+    toggleSpinner(false);
 }

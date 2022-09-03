@@ -36,6 +36,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css"
     />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
+
     <!-- tailwind css -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -160,7 +162,7 @@
       <!-- News Section -->
       <section>
         <!-- short by part -->
-        <div class="flex justify-between pb-7 mx-10 mb-14">
+        <div class="flex justify-between pb-7 mx-10 mb-7">
           <div class="flex">
             <h5>Short By View:</h5>
             <div class="flex bg-sky-100 px-2 rounded ml-2">
@@ -178,7 +180,7 @@
         </div>
 
         <!-- Loading spinner -->
-        <div id="loader" class="hidden">
+        <div id="loader" class="hidden mb-7">
           <div class="flex items-center justify-center">
             <strong> Loading...</strong>
             <div
@@ -189,63 +191,12 @@
         </div>
 
         <!-- News -->
-        <div id="news-container" class="grid grid-cols-1 gap-3">
+        <div id="news-container" class="grid grid-cols-1 gap-3 pt-7  mx-2">
 
         </div>
-        <!-- <div class="flex justify-center">
-          <div
-            class="flex flex-col md:flex-row md:w-5/6 rounded-lg bg-sky-100 shadow-lg"
-          >
-            <img
-              class="w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
-              src="https://mdbootstrap.com/wp-content/uploads/2020/06/vertical.jpg"
-              alt=""
-            />
-            <div class="p-6 flex flex-col justify-start">
-              <h5 class="text-gray-900 text-xl font-medium mb-2">Card title</h5>
-              <p class="text-gray-700 text-base mb-4">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <div class="flex justify-end">
-                <button><img src="./images/bi_arrow-right-short.png" alt=""></button>
-              </div>
-              
-              <div class="flex justify-between items-center mt-5 md:mt-0 lg:mr-10">
-                <div class="mb-2">
-                  <div class="flex">
-                    <img src="./images/Avatar.png" alt="" />
-                    <div class="pl-2">
-                      <h3 class="text-md font-semibold">Mihir Roy</h3>
-                      <p class="text-sm">UI Designer</p>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div class="flex">
-                    <img src="./images/carbon_view.png" alt="" />
-                    <div class="ml-">
-                      <p class="text-sm p-1 font-bold">Views</p>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                   <div class="flex items-center">
-                    <div>
-                      <p class="text-sm">Rating:</p>
-                    </div>
-                    <div class="mx-2">
-                      <p class="text-sm font-bold">star</p>
-                    </div>
-                    <i class="fa-solid fa-star text-yellow-400"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </section>
+
+      <section></section>
     </main>
 
     <!-- script link -->
