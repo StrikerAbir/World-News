@@ -170,6 +170,7 @@ const displayFullDetails = (data) => {
     modal.innerHTML = ``;
     modal.innerHTML = `
       <h4 class="font-bold text-lg">${d.title}</h4>
+      <img class="w-full py-4" src="${d.thumbnail_url}">
       <p>${d.details}</p>
     `
   })
