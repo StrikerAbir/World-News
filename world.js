@@ -68,26 +68,20 @@ const displayCategoryData = (newsFeed, name) => {
 const setCards = (newsFeed) => {
   const newsContainer = document.getElementById('news-container')
   newsContainer.innerHTML = ``;
-  console.log(newsFeed);
+
+  // views sorting part
   let array = [];
   newsFeed.forEach(news => {
     array.push(news.total_view);
-    // if (news.total_view == null) {
-    //   array.push(-1);
-
-    // } else {
-      
-    // }
   })
-  console.log(array);
   const sort = (array.sort(function (a, b) {
     return (+a) - (+b);
   }));
-  console.log(array);
-  console.log(sort);
+
+  // showing sorted views with cards
   for (const i of sort.reverse()) {
     newsFeed.forEach(news => {
-      if (news.total_view === i){
+      if (news.total_view === i) {
         const details = news.details.slice(0, 230);
         const monthNames = ["Jan", "Feb", "Mar", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"
         ];
@@ -117,9 +111,9 @@ const setCards = (newsFeed) => {
               <div class="flex justify-between items-center mt-5 md:mt-0 lg:mr-10">
                 <div class="mb-2">
                   <div class="flex">
-                    <img class="h-10 w-10" src="${news.author.img}" alt="" />
+                    <img class="h-10 w-10" src="${news.author.img ? news.author.img : 'No Info'}" alt="" />
                     <div class="pl-2">
-                      <h3 class="text-md font-semibold">${news.author.name}</h3>
+                      <h3 class="text-md font-semibold">${news.author.name ? news.author.name : 'No Info'}</h3>
                       <p class="text-sm">${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}</p>
                     </div>
                   </div>
@@ -128,7 +122,7 @@ const setCards = (newsFeed) => {
                   <div class="flex">
                     <img src="./images/carbon_view.png" alt="" />
                     <div class="ml-">
-                      <p class="text-sm p-1 font-bold">${news.total_view}</p>
+                      <p class="text-sm p-1 font-bold">${news.total_view ? news.total_view : 'No Info'}</p>
                     </div>
                   </div>
                 </div>
@@ -149,7 +143,7 @@ const setCards = (newsFeed) => {
         `
         newsContainer.appendChild(div)
       }
-      
+
     })
   }
   toggleSpinner(false);
