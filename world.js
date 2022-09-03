@@ -182,3 +182,8 @@ document.getElementById('blogs-btn').addEventListener('click', function () {
   const blogs = document.getElementById('blogs');
   blogs.classList.remove('hidden');
 })
+
+document.getElementById('news').addEventListener('click', function () {
+  const blogs = document.getElementById('blogs');
+  blogs.classList.add('hidden');
+})
