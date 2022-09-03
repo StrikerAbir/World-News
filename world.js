@@ -2,35 +2,35 @@
 
 // loading categories
 const loadCatagories = () => {
-    fetch('https://openapi.programming-hero.com/api/news/categories')
-        .then(response => response.json())
-        .then(data => displayCategory(data.data.news_category))
-        .catch(err => console.error(err));
+  fetch('https://openapi.programming-hero.com/api/news/categories')
+    .then(response => response.json())
+    .then(data => displayCategory(data.data.news_category))
+    .catch(err => console.error(err));
 }
 
 //  display Categories 
 const displayCategory = (categories) => {
-    const categoriesContainer = document.getElementById('categories-container');
-    categories.forEach((category) => {
-        const div = document.createElement('div');
-        div.classList.add('hover:bg-red-600', 'hover:text-white', 'rounded')
-        div.innerHTML = `
+  const categoriesContainer = document.getElementById('categories-container');
+  categories.forEach((category) => {
+    const div = document.createElement('div');
+    div.classList.add('hover:bg-red-600', 'hover:text-white', 'rounded')
+    div.innerHTML = `
             <div class="text-center py-3" onclick="clickedCategory('${category.category_id}','${category.category_name}')">
                 <p>${category.category_name}</p>
             </div> 
         `
-        categoriesContainer.appendChild(div);
-    })
+    categoriesContainer.appendChild(div);
+  })
 
-    // view all data default
-    loadCategoryData(categories[categories.length - 1].category_id, categories[categories.length - 1].category_name);
+  // view all data default
+  loadCategoryData(categories[categories.length - 1].category_id, categories[categories.length - 1].category_name);
 }
 loadCatagories()
 
 
 const clickedCategory = (categoryId, categoryName) => {
-    toggleSpinner(true);
-    loadCategoryData(categoryId, categoryName);
+  toggleSpinner(true);
+  loadCategoryData(categoryId, categoryName);
 }
 
 
@@ -38,40 +38,58 @@ const clickedCategory = (categoryId, categoryName) => {
 
 // Loading spinner
 const toggleSpinner = (isLoading) => {
-    const spinner = document.getElementById('loader');
-    if (isLoading) {
-        spinner.classList.remove('hidden');
-    } else {
-        spinner.classList.add('hidden');
-    }
+  const spinner = document.getElementById('loader');
+  if (isLoading) {
+    spinner.classList.remove('hidden');
+  } else {
+    spinner.classList.add('hidden');
+  }
 }
 
 // load all news
 
 // load category data
 const loadCategoryData = (id, name) => {
-    const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
-    fetch(url)
-        .then(response => response.json())
-        .then(data => displayCategoryData(data.data, name))
-        .catch(err => console.error(err));
+  const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => displayCategoryData(data.data, name))
+    .catch(err => console.error(err));
 }
 
 // Display category data 
 const displayCategoryData = (newsFeed, name) => {
-    console.log(newsFeed);
-    const totalNews = document.getElementById('total-news');
-    totalNews.innerText = `${name} category has ${newsFeed.length} news`;
-    setCards(newsFeed)
+  const totalNews = document.getElementById('total-news');
+  totalNews.innerText = `${name} category has ${newsFeed.length} news`;
+  setCards(newsFeed)
 }
 
+// function to set card on html
 const setCards = (newsFeed) => {
-    const newsContainer = document.getElementById('news-container')
-    newsContainer.innerHTML = ``;
+  const newsContainer = document.getElementById('news-container')
+  newsContainer.innerHTML = ``;
+  console.log(newsFeed);
+  let array = [];
+  newsFeed.forEach(news => {
+    array.push(news.total_view);
+    // if (news.total_view == null) {
+    //   array.push(-1);
 
+    // } else {
+      
+    // }
+  })
+  console.log(array);
+  const sort = (array.sort(function (a, b) {
+    return (+a) - (+b);
+  }));
+  console.log(array);
+  console.log(sort);
+  for (const i of sort.reverse()) {
     newsFeed.forEach(news => {
+      if (news.total_view === i){
         const details = news.details.slice(0, 230);
-        const monthNames = ["Jan", "Feb", "Mar", "April", "May", "June","July", "Aug", "Sept", "Oct", "Nov", "Dec"
+        const monthNames = ["Jan", "Feb", "Mar", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"
         ];
         const date = new Date(news.author.published_date);
         const div = document.createElement('div');
@@ -130,8 +148,11 @@ const setCards = (newsFeed) => {
           </div>
         `
         newsContainer.appendChild(div)
+      }
+      
     })
-    toggleSpinner(false);
+  }
+  toggleSpinner(false);
 }
 
 
