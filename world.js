@@ -61,7 +61,16 @@ const loadCategoryData = (id, name) => {
 const displayCategoryData = (newsFeed, name) => {
   const totalNews = document.getElementById('total-news');
   totalNews.innerText = `${name} category has ${newsFeed.length} news`;
-  setCards(newsFeed)
+  if (newsFeed.length > 0) {
+    const notFound = document.getElementById('not-found');
+    notFound.classList.add('hidden');
+    setCards(newsFeed);
+  } else {
+    const notFound = document.getElementById('not-found');
+    notFound.classList.remove('hidden');
+    setCards(newsFeed);
+  }
+  
 }
 
 // function to set card on html
