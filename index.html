@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
       rel="stylesheet"
     />
-    
+
     <!-- font awesome kit -->
     <script
       src="https://kit.fontawesome.com/99bc7f2386.js"
@@ -36,7 +36,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css"
     />
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
 
     <!-- tailwind css -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -60,7 +64,7 @@
   <body>
     <!-- header part -->
     <header class="container mx-auto">
-      <nav class="bg-sky-500 px-2 sm:px-4 py-2.5 font-sans">
+      <nav class="bg-sky-500 px-2 sm:px-4 py-2.5 font-sans text-black">
         <div
           class="container flex flex-wrap justify-between items-center mx-auto"
         >
@@ -144,7 +148,7 @@
     </header>
 
     <!-- main part -->
-    <main class="container mx-auto bg-sky-200 py-7">
+    <main class="container mx-auto bg-sky-200 py-7 text-black">
       <!-- categories section -->
       <section class="mb-16">
         <!-- categories -->
@@ -191,12 +195,30 @@
         </div>
 
         <!-- News -->
-        <div id="news-container" class="grid grid-cols-1 gap-3 pt-7  mx-2">
-
-        </div>
+        <div id="news-container" class="grid grid-cols-1 gap-3 pt-7 mx-2"></div>
       </section>
 
-      <section></section>
+      <section>
+
+        <!-- Put this part before tag -->
+        <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+        <div class="modal">
+          <div class="modal-box relative bg-sky-100">
+            <label
+              for="my-modal-3"
+              class="btn btn-sm btn-circle absolute right-2 top-2"
+              >✕</label
+            >
+            <h3 class="text-lg font-bold">
+              Congratulations random Internet user!
+            </h3>
+            <p class="py-4">
+              You've been selected for a chance to get one year of subscription
+              to use Wikipedia for free!
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- script link -->

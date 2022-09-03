@@ -21,6 +21,9 @@ const displayCategory = (categories) => {
         `
         categoriesContainer.appendChild(div);
     })
+
+    // view all data default
+    loadCategoryData(categories[categories.length - 1].category_id, categories[categories.length - 1].category_name);
 }
 loadCatagories()
 
@@ -43,6 +46,8 @@ const toggleSpinner = (isLoading) => {
     }
 }
 
+// load all news
+
 // load category data
 const loadCategoryData = (id, name) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
@@ -54,7 +59,6 @@ const loadCategoryData = (id, name) => {
 
 // Display category data 
 const displayCategoryData = (newsFeed, name) => {
-    console.log(newsFeed);
     const totalNews = document.getElementById('total-news');
     totalNews.innerText = `${name} category has ${newsFeed.length} news`;
     setCards(newsFeed)
@@ -86,7 +90,7 @@ const setCards = (newsFeed) => {
                 ${details}...
               </p>
               <div class="flex justify-end">
-                <button><img src="./images/bi_arrow-right-short.png" alt=""></button>
+                <label for="my-modal-3"><img src="./images/bi_arrow-right-short.png" alt=""></label> 
               </div>
               
               <div class="flex justify-between items-center mt-5 md:mt-0 lg:mr-10">
