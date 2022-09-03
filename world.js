@@ -159,3 +159,10 @@ const displayFullDetails = (data) => {
     `
   })
 }
+
+// ! blogs Section
+
+document.getElementById('blogs-btn').addEventListener('click', function () {
+  const blogs = document.getElementById('blogs');
+  blogs.classList.remove('hidden');
+})
