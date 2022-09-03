@@ -59,6 +59,7 @@ const loadCategoryData = (id, name) => {
 
 // Display category data 
 const displayCategoryData = (newsFeed, name) => {
+    console.log(newsFeed);
     const totalNews = document.getElementById('total-news');
     totalNews.innerText = `${name} category has ${newsFeed.length} news`;
     setCards(newsFeed)
@@ -90,7 +91,9 @@ const setCards = (newsFeed) => {
                 ${details}...
               </p>
               <div class="flex justify-end">
-                <label for="my-modal-3"><img src="./images/bi_arrow-right-short.png" alt=""></label> 
+              <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable" onclick="loadFullDetails('${news._id}')">
+                  <img src="./images/bi_arrow-right-short.png" alt="">
+                </button>
               </div>
               
               <div class="flex justify-between items-center mt-5 md:mt-0 lg:mr-10">
@@ -129,4 +132,30 @@ const setCards = (newsFeed) => {
         newsContainer.appendChild(div)
     })
     toggleSpinner(false);
+}
+
+
+
+//! showing details in modal
+
+// full details in modal
+const loadFullDetails = (id) => {
+  const url = `https://openapi.programming-hero.com/api/news/${id}`;
+  console.log(id);
+  fetch(url)
+    .then(response => response.json())
+    .then(data => displayFullDetails(data.data))
+    .catch(err => console.error(err));
+}
+
+const displayFullDetails = (data) => {
+  console.log(data);
+  data.forEach(d => {
+    const modal = document.getElementById('modal-body');
+    modal.innerHTML = ``;
+    modal.innerHTML = `
+      <h4 class="font-bold text-lg">${d.title}</h4>
+      <p>${d.details}</p>
+    `
+  })
 }

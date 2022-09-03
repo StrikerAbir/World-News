@@ -36,11 +36,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css"
     />
-    <link
+    <!-- <link
       href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css"
       rel="stylesheet"
       type="text/css"
-    />
+    /> -->
 
     <!-- tailwind css -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -199,23 +199,41 @@
       </section>
 
       <section>
-
-        <!-- Put this part before tag -->
-        <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-        <div class="modal">
-          <div class="modal-box relative bg-sky-100">
-            <label
-              for="my-modal-3"
-              class="btn btn-sm btn-circle absolute right-2 top-2"
-              >✕</label
+        <!-- Modal -->
+        <div
+          class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+          id="exampleModalScrollable"
+          tabindex="-1"
+          aria-labelledby="exampleModalScrollableLabel"
+          aria-hidden="true"
+        >
+          <div
+            class="modal-dialog modal-dialog-scrollable relative w-auto pointer-events-none"
+          >
+            <div
+              class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto  bg-clip-padding rounded-md outline-none text-current"
             >
-            <h3 class="text-lg font-bold">
-              Congratulations random Internet user!
-            </h3>
-            <p class="py-4">
-              You've been selected for a chance to get one year of subscription
-              to use Wikipedia for free!
-            </p>
+              <div
+                class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md bg-sky-200"
+              >
+                <h5
+                  class="text-xl font-medium leading-normal text-gray-800"
+                  id="exampleModalScrollableLabel"
+                >
+                  Details News
+                </h5>
+                <button
+                  type="button"
+                  class="border-2 border-sky-500 bg-red-600 px-2 py-1 rounded-full text-white font-bold"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >✕</button>
+              </div>
+              <div id="modal-body" class="modal-body relative p-4 bg-sky-100">
+                
+              </div>
+              
+            </div>
           </div>
         </div>
       </section>
